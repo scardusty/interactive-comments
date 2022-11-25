@@ -1,0 +1,497 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+
+
+/*# Front-end Style Guide
+
+## Layout
+
+The designs were created to the following widths:
+
+- Mobile: 375px
+- Desktop: 1440px
+
+## Colors
+
+### Primary
+*/
+
+:root {
+
+--mblue: hsl(238, 40%, 52%);
+--sred: hsl(358, 79%, 66%);
+--lgreyblue: hsl(239, 57%, 85%);
+--pred: hsl(357, 100%, 86%);
+    --mblue2: #3E52A3;
+/*
+### Neutral
+*/
+
+--dblue: hsl(212, 24%, 26%) ;
+--greyblue: hsl(211, 10%, 45%);
+--lgrey: hsl(223, 19%, 93%);
+    --vlgrey: hsl(228, 33%, 97%); }
+/*
+## Typography
+
+### Body Copy
+
+- Font size (paragraph): 16px
+
+### Font
+
+- Family: [Rubik](https://fonts.google.com/specimen/Rubik)
+- Weights: 400, 500, 700  */
+
+body {
+    font-family: "Rubik", "Arial", sans-serif;
+    font-size:16px;
+    background-color:#eee;
+    font-weight:400;
+    margin:0;
+    width:100vw;
+    line-height:1.5;
+}
+
+* {
+    box-sizing:border-box;
+}
+
+.attribution { 
+    font-size: 11px; 
+    text-align: center; 
+}
+
+a, .vote-number { 
+    color: var(--mblue2); 
+    font-weight:500;
+    display:block;
+    text-decoration:none;
+}
+
+#wrapper {
+    margin:40px auto;
+    width:80%;
+    background:var(--vlgrey);
+    padding:60px;
+    box-shadow:0px 0px 60px -30px var(--greyblue);
+}
+
+img {
+    width:25px;
+    height:25px;
+    margin-right:10px;
+}
+
+ul li {
+    list-style-type:none;
+}
+
+.comments {
+    margin-left:0;
+    padding-left:0;
+    max-width:650px;
+    margin:0 auto;
+}
+
+.comment {
+    margin:10px 0 10px 0;
+}
+
+.comment-wrapper {
+    background:#fff;
+    display:flex;
+    align-content:flex-start;
+    border-radius:7px;
+    box-shadow:0px 0px 2px -1px var(--lgreyblue);
+    padding:15px;
+}
+
+.count {
+    padding:5px;
+    margin-right:10px;
+    font-size:0.8em;
+}
+
+.count div {
+    width:32px;
+    height:28px;
+    padding:7px;
+    background:var(--vlgrey);
+    text-align:center;
+}
+
+.count .plus {
+    border-radius:7px 7px 0 0;
+}
+
+.count .minus {
+    border-radius:0 0 7px 7px;
+    padding-top:2px;
+    padding-bottom:12px;
+}
+
+.count .vote-count {
+    padding:0 8px;
+}
+
+.count svg path{
+    display:block;
+    fill:#ccc;
+}
+
+.plus:hover, .minus:hover {
+    
+    cursor:pointer;
+}
+
+.count div:hover path {
+    fill:var(--mblue);
+}
+
+.comment-text {
+    flex-grow:3;
+    max-width:calc(100% - 42px);
+}
+
+.comment-head {
+    display:flex;
+    align-items:center;
+    margin-bottom:5px;
+}
+    
+
+.name,  .date, .action-buttons, .add-comment form div, .add-comment form p {
+    color:var(--mblue);
+    font-size:0.9rem;
+    margin:0;
+    margin-right:10px;
+    flex:0 1 auto;
+    justify-self:flex-start;
+    font-weight: 500;
+}
+
+.name {
+    color:var(--dgreyblue);
+    font-weight:600;
+}
+
+.is-you .name::after {
+    line-height:1rem;
+    content: "you";
+    display:inline-block;
+    background:var(--mblue);
+    padding:1px 7px;
+    margin:0 5px;
+    font-weight:500;
+    border-radius:2px;
+    font-size:0.7rem;
+    color:#fff;
+}
+
+.date {
+    
+    color:var(--greyblue);
+    padding:0 10px;
+    font-weight:500;
+}
+
+.comment-head .action-buttons {
+    flex:2 1 auto;
+    text-align:right;
+}
+
+.action-buttons span{
+    display:inline-block;
+    margin:0 0 0 10px;
+    cursor:pointer;
+}
+
+.action-buttons span:hover {
+    opacity:0.6;
+    
+    cursor:pointer;
+}
+
+span.edit-button, span.delete-button {
+    display:none;
+}
+
+.is-you  span.edit-button, .is-you span.delete-button {
+    display:inline-block;
+}
+
+.comment-body {
+    padding:5px;
+    margin:0;
+    color:var(--greyblue);
+    font-weight:400;
+    overflow-wrap:break-word;
+    font-size:0.9rem;
+    
+        max-width:100%;
+}
+
+.replies {
+    margin:0 0 0 40px;
+    padding:0 0 0 40px;
+    border-left:var(--lgrey) 2px solid;
+}
+    
+
+.add-icon {
+    margin:0 5px;
+    width:40px;
+    height:40px;
+
+}
+
+.add-comment form .add-text {
+    flex-grow:2;
+}
+
+.add-text textarea{
+    display:block;
+    width:calc(100% - 20px);
+    border:1px var(--lgrey) solid;
+    border-radius:7px;
+    margin:0 10px;
+    min-height:90px;
+    font-family: "Rubik", sans-serif;
+    padding:7px 15px;
+    font-size:0.95em;
+}
+
+textarea:focus {
+    border:1px solid var(--mblue);
+    outline:none;
+}
+
+input[type=submit], .update {
+    border:none;
+    background-color:var(--mblue);
+    padding:10px 15px;
+    color:var(--vlgrey);
+    font-weight:700;
+    text-transform:uppercase;
+    margin:0;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+input[type=submit]:hover, .update:hover {
+    opacity:0.7;
+}
+
+.update {
+    margin:10px 10px 0 10px;
+}
+
+
+.edit {
+    text-align:right;
+}
+
+.add-comment ~ .add-comment {
+    display:none;
+}
+
+
+#hide-me {
+    position:absolute;
+    left:-3000px;
+    visibility:hidden;
+}
+
+#delete-popup {
+    display:none;
+    width:350px;
+    color:var(--greyblue);
+    max-width:100%;
+    background-color:#fff;
+    border-radius:10px;
+    padding:30px;
+    position:fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    flex-wrap:wrap;
+    z-index:5;
+    gap:10px;
+}
+
+
+#screen {
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100vw;
+    height:100vh;
+    background-color:rgba(50,50,50,0.5);
+    z-index:4;
+}
+
+
+#delete-popup p {
+    width:100%;
+}
+
+#delete-popup input {
+    flex:1 1 auto;
+    background-color:var(--greyblue);
+    border:none;
+    padding:10px 15px;
+    margin:5px 0;
+    color:#fff;
+    text-transform:uppercase;
+    border-radius:7px;
+}
+
+#delete-popup input:hover {
+    opacity:0.7;
+    cursor:pointer;
+}
+
+#delete-popup .yes-delete {
+    background-color:var(--sred);
+}
+
+.at-username {
+    color:var(--mblue);
+    font-weight:500;
+}
+
+@media screen and (max-width:800px) {
+    #wrapper {
+        width:calc(100vw);
+        margin:0;
+        padding:15px;
+    }
+
+    .replies {
+        margin:0 0 0 0px;
+        padding:0 0 0 15px;
+    }
+
+    .comment-wrapper {
+        display:flex;
+        position:relative;
+        flex-flow:row wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .comment-wrapper .add-text {
+        order:1;
+        flex:2 0 100%;
+    }
+    
+    .add-text textarea{
+        margin:0 0 10px 0;
+        width:100%;
+    }
+    
+    .comment-wrapper .add-icon, .comment-wrapper .submit-reply {
+        order:2;
+    }
+    
+    .comment-wrapper .submit-reply {
+        margin:0;
+    }
+    
+    .submit-reply input {
+        padding:12px 25px;
+    }
+    
+    .comment-wrapper .add-icon {
+        width:25px;
+        height:25px;
+        margin:10px 0;
+    }
+    
+    .count {
+        position:absolute;
+        bottom:15px;
+        left:15px;
+        margin:0;
+    }
+    
+    .count div {
+        display:inline-block;
+        height:32px;
+        width:32px;
+        margin:0;
+    }
+    
+    .count .plus {
+        border-radius:7px 0 0 7px;
+    }
+    
+    .count .minus {
+        padding:8px;
+        height:32px;
+        border-radius:0 7px 7px 0;
+    }
+    
+    .count .minus svg {
+        position:relative;
+        top:-3px;
+    }
+    
+    .comment-text {
+        display:flex;
+        flex-wrap:wrap;
+        font-size:16px;
+    }
+    
+    .comment-head p {
+        font-size:16px;
+    }
+    
+    p.date {
+        
+        font-weight:normal;
+    }
+    
+    p.name {
+        font-weight:500;
+    }
+    
+    .comment-head {
+        display:contents;
+    }
+    
+    .comment-head img {
+        width:30px;
+        height:30px;
+    }
+    
+    .comment-body {
+        flex:2 0 100%;
+        order:4;
+        margin:10px 0;
+        font-size:16px;
+    }
+    
+    .action-buttons {
+        order:5;
+        height:40px;
+        display:flex;
+        align-items:center;
+        justify-content:flex-end;
+    }
+    
+    .action-buttons span {
+        height:auto;
+        align-content:center;
+    }
+    
+    .date {
+        padding:0 0 0 10px;
+    }
+    
+    #delete-popup input { 
+        padding:15px;
+    }
+
+}

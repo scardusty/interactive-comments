@@ -291,15 +291,20 @@ function getActionButtons (id, currentUserData, opUserData) {
         textareaWrapper.appendChild(updateButton);
         
         updateButton.onclick = function () {
-            let atUsername = commentContent.replace(/ .*/,''); // get replyingTo username (first word) of commentText
-            let replyingTo = document.createElement('span');
             commentContent = textarea.value;
-            commentContent = commentContent.slice(atUsername.length); // crop username from comment
-            replyingTo.classList.add('at-username');
-            replyingTo.innerHTML = atUsername;
-            commentBody.innerHTML = '';
-            commentBody.appendChild(replyingTo);
-            commentBody.innerHTML += ' ' + commentContent;
+            if (commentContent.charAt(0) == '@' ) {
+                let atUsername = commentContent.replace(/ .*/,''); // get replyingTo username (first word) of commentText
+                let replyingTo = document.createElement('span');
+                commentContent = commentContent.slice(atUsername.length); // crop username from comment
+                replyingTo.classList.add('at-username');
+                replyingTo.innerHTML = atUsername;
+                commentBody.innerHTML = '';
+                commentBody.appendChild(replyingTo);
+                commentBody.innerHTML += ' ' + commentContent;
+            } else { //not a reply
+                commentBody.innerHTML = commentContent;
+            }
+            
             commentContainer.removeChild(textareaWrapper);
             commentContainer.appendChild(commentBody);
         };
